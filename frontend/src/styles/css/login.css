@@ -7,7 +7,9 @@
 }
 #fullName,
 #email,
-#age {
+#age,
+#password,
+#confirmPassword {
   color: #fff;
   background-color: #111;
 }

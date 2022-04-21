@@ -67,24 +67,24 @@ class Home extends Component {
               </ul>
             </div>
             <div className="auth-container">
-              <div
-                onClick={this.loginLogoutButton.bind(this)}
+              <Link
+                to="/login"
+                disabled
                 className="auth-buttons"
-                id="login-button"
+                id="signup-button"
               >
-                {this.state.buttonText}
-              </div>
-            </div>
-            {/*
+                Login
+              </Link>
+
               <Link
                 to="/register"
                 disabled
                 className="auth-buttons"
                 id="signup-button"
               >
-                Sign Up
+                Register
               </Link>
-             */}
+            </div>
           </section>
         </div>
       </Fragment>
