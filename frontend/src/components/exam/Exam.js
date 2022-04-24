@@ -10,6 +10,7 @@ import correctNotification from "../../assets/audio/correct-answer.mp3";
 import wrongNotification from "../../assets/audio/wrong-answer.mp3";
 import buttonSound from "../../assets/audio/button-sound.mp3";
 import cookie from "react-cookies";
+import { setResult } from "../../actions/resultActions";
 
 class Exam extends Component {
   constructor(props) {
@@ -40,8 +41,8 @@ class Exam extends Component {
   }
 
   componentDidMount() {
-    let email = cookie.load("email");
-    if (!email) {
+    let userInfo = cookie.load("userInfo");
+    if (!userInfo) {
       this.props.history.push("/");
     }
   }
@@ -213,6 +214,7 @@ class Exam extends Component {
         numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1,
         correctQuestionAsnswered: correctQuestionAsnswered,
       }),
+
       () => {
         if (this.state.nextQuestion === undefined) {
           this.endExam();
@@ -339,6 +341,8 @@ class Exam extends Component {
 
   endExam = () => {
     alert("Exam is eneded!");
+    // call the API to save the results of users
+
     const { state } = this;
     const playerStats = {
       score: state.score,
@@ -349,6 +353,7 @@ class Exam extends Component {
       fiftyFiftyUsed: 2 - state.fiftyFifty,
       hintsUsed: 5 - state.hints,
     };
+    setResult(playerStats);
     setTimeout(() => {
       this.props.history.push("/exam/summary", playerStats);
     }, 1000);

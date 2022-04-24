@@ -7,39 +7,30 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      buttonText: "Register",
+      userInfo: null,
     };
   }
 
   componentDidMount() {
-    const email = getValue("email");
-    if (email) {
-      this.setState({ email, buttonText: "Logout" });
+    const userInfo = getValue("userInfo");
+    if (userInfo) {
+      this.setState({ userInfo });
     }
   }
 
   startClicked() {
-    if (this.state.email) {
+    if (this.state.userInfo) {
+      console.log("CAME");
       this.props.history.push("/exam/instructions");
     } else {
-      alert("You need to Register first.");
+      alert("You need to Login first.");
     }
   }
 
-  loginLogoutButton() {
-    if (this.state.email) {
-      removeValue("fullName");
-      removeValue("email");
-      removeValue("age");
-      alert("You are logged out!");
-      this.setState({
-        email: null,
-        buttonText: "Register",
-      });
-    } else {
-      this.props.history.push("/register");
-    }
+  handleLogout() {
+    removeValue("userInfo");
+    this.setState({ userInfo: null });
+    alert("You are logged out!");
   }
 
   render() {
@@ -66,25 +57,37 @@ class Home extends Component {
                 </li>
               </ul>
             </div>
-            <div className="auth-container">
-              <Link
-                to="/login"
-                disabled
-                className="auth-buttons"
-                id="signup-button"
-              >
-                Login
-              </Link>
+            {this.state.userInfo ? (
+              <div className="auth-container">
+                <div
+                  onClick={this.handleLogout.bind(this)}
+                  className="auth-buttons"
+                  id="signup-button"
+                >
+                  Logout
+                </div>
+              </div>
+            ) : (
+              <div className="auth-container">
+                <Link
+                  to="/login"
+                  disabled
+                  className="auth-buttons"
+                  id="signup-button"
+                >
+                  Login
+                </Link>
 
-              <Link
-                to="/register"
-                disabled
-                className="auth-buttons"
-                id="signup-button"
-              >
-                Register
-              </Link>
-            </div>
+                <Link
+                  to="/register"
+                  disabled
+                  className="auth-buttons"
+                  id="signup-button"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </section>
         </div>
       </Fragment>

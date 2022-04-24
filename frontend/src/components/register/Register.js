@@ -16,8 +16,8 @@ class Register extends Component {
   }
 
   componentDidMount() {
-    let email = cookie.load("email");
-    if (email) {
+    let userInfo = cookie.load("userInfo");
+    if (userInfo) {
       this.props.history.push("/");
     }
   }
@@ -25,7 +25,7 @@ class Register extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { fullName, email, password } = this.state;
-    register(fullName, email, password);
+    register(fullName, email, password, this.props.history);
   }
 
   onChange(e) {

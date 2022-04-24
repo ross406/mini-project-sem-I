@@ -6,6 +6,8 @@ import Exam from "./components/exam/Exam";
 import ExamSummary from "./components/exam/ExamSummary";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
+import Results from "./components/results/Results";
+import Result from "./components/results/Result";
 
 class App extends React.Component {
   render() {
@@ -17,6 +19,8 @@ class App extends React.Component {
         <Route path="/exam/instructions" exact component={ExamInstruntions} />
         <Route path="/exam/start" exact component={Exam} />
         <Route path="/exam/summary" exact component={ExamSummary} />
+        <Route path="/results/:id" exact component={Result} />
+        <Route path="/results" exact component={Results} />
       </Router>
     );
   }

@@ -14,8 +14,8 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    let email = cookie.load("email");
-    if (email) {
+    let userInfo = cookie.load("userInfo");
+    if (userInfo) {
       this.props.history.push("/");
     }
   }
@@ -23,7 +23,7 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    login(email, password);
+    login(email, password, this.props.history);
   }
 
   onChange(e) {

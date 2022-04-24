@@ -22,6 +22,8 @@ label {
   display: flex;
   width: 100%;
   justify-content: center;
+  color: #fff;
+  border-color: #fff;
 }
 .form {
   width: 100%;
