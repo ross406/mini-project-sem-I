@@ -12,18 +12,18 @@ router.post("/set", authorize, async (req, res) => {
     let drop = await pool.query("DROP TABLE IF EXISTS questions");
 
     let create = await pool.query(
-      "CREATE TABLE questions(question_id SERIAL,question TEXT NOT NULL,optionA VARCHAR(255) NOT NULL,optionB VARCHAR(255) NOT NULL,optionC VARCHAR(255) NOT NULL,optionD VARCHAR(255) NOT NULL,answer VARCHAR(255) NOT NULL,PRIMARY KEY (question_id))"
+      "CREATE TABLE questions(question_id SERIAL,question TEXT NOT NULL,optiona VARCHAR(255) NOT NULL,optionb VARCHAR(255) NOT NULL,optionc VARCHAR(255) NOT NULL,optiond VARCHAR(255) NOT NULL,answer VARCHAR(255) NOT NULL,PRIMARY KEY (question_id))"
     );
 
     questions.forEach(async (question) => {
       let result = await pool.query(
-        "INSERT INTO questions (question, optionA, optionB, optionC, optionD, answer) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        "INSERT INTO questions (question, optiona, optionb, optionc, optiond, answer) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
         [
           question.question,
-          question.optionA,
-          question.optionB,
-          question.optionC,
-          question.optionD,
+          question.optiona,
+          question.optionb,
+          question.optionc,
+          question.optiond,
           question.answer,
         ]
       );
