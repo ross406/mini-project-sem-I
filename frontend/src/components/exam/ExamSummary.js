@@ -68,14 +68,14 @@ class ExamSummary extends Component {
           <div className="container stats">
             <h4>{remark}</h4>
             <h2>Your Score: {this.state.score.toFixed(0)}&#37;</h2>
-            <span className="stat left">Full Name: </span>
+            {/*<span className="stat left">Full Name: </span>
             <span className="right">{this.state.fullName}</span>
             <br />
             <span className="stat left">Email: </span>
             <span className="right">{this.state.email}</span>
             <br />
             <span className="stat left">Age: </span>
-            <span className="right">{this.state.age}</span>
+            <span className="right">{this.state.age}</span> */}
             <br />
             <br />
             <span className="stat left">Total number of questions: </span>

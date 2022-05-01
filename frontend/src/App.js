@@ -8,6 +8,7 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Results from "./components/results/Results";
 import Result from "./components/results/Result";
+import SetQuestions from "./components/questions/SetQuestions";
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Route path="/exam/summary" exact component={ExamSummary} />
         <Route path="/results/:id" exact component={Result} />
         <Route path="/results" exact component={Results} />
+        <Route path="/set-questions" exact component={SetQuestions} />
       </Router>
     );
   }

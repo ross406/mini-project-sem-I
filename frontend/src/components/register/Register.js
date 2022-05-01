@@ -12,6 +12,7 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      error: "",
     };
   }
 
@@ -24,8 +25,26 @@ class Register extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { fullName, email, password } = this.state;
-    register(fullName, email, password, this.props.history);
+    const { fullName, email, password, confirmPassword } = this.state;
+
+    if (password !== confirmPassword) {
+      this.setState({ error: "Password and Confirm Password should match!" });
+    } else if (password.length < 6) {
+      this.setState({ error: "Password should be more than 6 charecters!" });
+    } else {
+      register(
+        fullName,
+        email.toLowerCase(),
+        password,
+        this.props.history,
+        function (err) {
+          console.log("err>>>", err.message);
+          if (err.message) {
+            this.setState({ error: "This user Already Exists!" });
+          }
+        }.bind(this)
+      );
+    }
   }
 
   onChange(e) {
@@ -38,7 +57,12 @@ class Register extends Component {
     const { fullName, email, password, confirmPassword } = this.state;
     return (
       <div
-        style={{ backgroundColor: "#111", margin: 0, paddingBottom: "122px" }}
+        style={{
+          backgroundColor: "#111",
+          margin: 0,
+          paddingBottom: "122px",
+          minHeight: "100vh",
+        }}
       >
         <div id="container_1">
           <h1 id="title" style={{ margin: 0, padding: "30px 20px" }}>
@@ -96,6 +120,9 @@ class Register extends Component {
             />
 
             <input type="submit" id="submit" name="submit" value="Submit" />
+            {this.state.error !== "" && (
+              <p style={{ color: "red" }}>{this.state.error}</p>
+            )}
           </form>
         </div>
       </div>

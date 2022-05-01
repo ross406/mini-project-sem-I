@@ -1,136 +1,136 @@
 [
   {
     "question": "What temperature does water boil at?",
-    "optionA": "50 degrees celsius",
-    "optionB": "25 degrees celsius",
-    "optionC": "100 degrees celsius",
-    "optionD": "150 degrees celsius",
+    "optiona": "50 degrees celsius",
+    "optionb": "25 degrees celsius",
+    "optionc": "100 degrees celsius",
+    "optiond": "150 degrees celsius",
     "answer": "100 degrees celsius"
   },
 
   {
     "question": "What is the Capital of India?",
-    "optionA": "Pune",
-    "optionB": "Mumbai",
-    "optionC": "New Delhi",
-    "optionD": "Bihar",
+    "optiona": "Pune",
+    "optionb": "Mumbai",
+    "optionc": "New Delhi",
+    "optiond": "Bihar",
     "answer": "New Delhi"
   },
 
   {
     "question": "Which is the Largest State in India?",
-    "optionA": "Madhya Pradesh",
-    "optionB": "Rajasthan",
-    "optionC": "Uttar Pradesh",
-    "optionD": "Maharashtra",
+    "optiona": "Madhya Pradesh",
+    "optionb": "Rajasthan",
+    "optionc": "Uttar Pradesh",
+    "optiond": "Maharashtra",
     "answer": "Rajasthan"
   },
 
   {
     "question": "Which is the only mammal that can’t jump?",
-    "optionA": "Dog",
-    "optionB": "Elephant",
-    "optionC": "Goat",
-    "optionD": "Lion",
+    "optiona": "Dog",
+    "optionb": "Elephant",
+    "optionc": "Goat",
+    "optiond": "Lion",
     "answer": "Elephant"
   },
 
   {
     "question": "Who composed the Indian National Anthem?",
-    "optionA": "Satyajit Ray",
-    "optionB": "Mohandas Karamchand Gandhi",
-    "optionC": "Swami Vivekananda",
-    "optionD": "Rabindranath Tagore",
+    "optiona": "Satyajit Ray",
+    "optionb": "Mohandas Karamchand Gandhi",
+    "optionc": "Swami Vivekananda",
+    "optiond": "Rabindranath Tagore",
     "answer": "Rabindranath Tagore"
   },
 
   {
     "question": "What colour is a panda?",
-    "optionA": "Green and Yellow",
-    "optionB": "Blue and Red",
-    "optionC": "Green and White",
-    "optionD": "Black and White",
+    "optiona": "Green and Yellow",
+    "optionb": "Blue and Red",
+    "optionc": "Green and White",
+    "optiond": "Black and White",
     "answer": "Black and White"
   },
 
   {
     "question": "Where is the smallest bone in the human body?",
-    "optionA": "The Chest",
-    "optionB": "The Ear",
-    "optionC": "The Legs",
-    "optionD": "The Hands",
+    "optiona": "The Chest",
+    "optionb": "The Ear",
+    "optionc": "The Legs",
+    "optiond": "The Hands",
     "answer": "The Ear"
   },
 
   {
     "question": "What is the full form of DBMS?",
-    "optionA": "DataBase Management System",
-    "optionB": "Donate Be Must Sysyem",
-    "optionC": "DataBase Management System",
-    "optionD": "Date Business Management System",
+    "optiona": "DataBase Management System",
+    "optionb": "Donate Be Must Sysyem",
+    "optionc": "DataBase Management System",
+    "optiond": "Date Business Management System",
     "answer": "DataBase Management System"
   },
 
   {
     "question": "What is the Full Form of WWW?",
-    "optionA": "World Web Wide",
-    "optionB": "Wide Web World",
-    "optionC": "Web World Wide",
-    "optionD": "World Wide Web",
+    "optiona": "World Web Wide",
+    "optionb": "Wide Web World",
+    "optionc": "Web World Wide",
+    "optiond": "World Wide Web",
     "answer": "World Wide Web"
   },
 
   {
     "question": "Who painted the Mona Lisa?",
-    "optionA": "Alexander Graham Bell",
-    "optionB": "Sir Isaac Newton",
-    "optionC": "Leonardo Da Vinci",
-    "optionD": "Albert Einstein",
+    "optiona": "Alexander Graham Bell",
+    "optionb": "Sir Isaac Newton",
+    "optionc": "Leonardo Da Vinci",
+    "optiond": "Albert Einstein",
     "answer": "Leonardo Da Vinci"
   },
 
   {
     "question": "What’s the most important book in the Moslem religion?",
-    "optionA": "The Koran",
-    "optionB": "The Dictionary",
-    "optionC": "The Bible",
-    "optionD": "The Bhagavad Gita",
+    "optiona": "The Koran",
+    "optionb": "The Dictionary",
+    "optionc": "The Bible",
+    "optiond": "The Bhagavad Gita",
     "answer": "The Koran"
   },
 
   {
     "question": "What’s the capital of America?",
-    "optionA": "Cape Town",
-    "optionB": "San Francisco",
-    "optionC": "Washington, D.C.",
-    "optionD": "Syndey",
+    "optiona": "Cape Town",
+    "optionb": "San Francisco",
+    "optionc": "Washington, D.C.",
+    "optiond": "Syndey",
     "answer": "Washington, D.C."
   },
 
   {
     "question": "How many squares are there on a chess board?",
-    "optionA": "128",
-    "optionB": "64",
-    "optionC": "32",
-    "optionD": "256",
+    "optiona": "128",
+    "optionb": "64",
+    "optionc": "32",
+    "optiond": "256",
     "answer": "64"
   },
 
   {
     "question": "Who invented the electric light bulb?",
-    "optionA": "Tom Cruise",
-    "optionB": "Barack Obama",
-    "optionC": "Wole Soyinka",
-    "optionD": "Thomas Edison",
+    "optiona": "Tom Cruise",
+    "optionb": "Barack Obama",
+    "optionc": "Wole Soyinka",
+    "optiond": "Thomas Edison",
     "answer": "Thomas Edison"
   },
 
   {
     "question": "Who Invented Computer?",
-    "optionA": "René Sommer",
-    "optionB": "Douglas Engelbart",
-    "optionC": "Karl Ferdinand Braun",
-    "optionD": "Charles Babbage",
+    "optiona": "René Sommer",
+    "optionb": "Douglas Engelbart",
+    "optionc": "Karl Ferdinand Braun",
+    "optiond": "Charles Babbage",
     "answer": "Charles Babbage"
   }
 ]

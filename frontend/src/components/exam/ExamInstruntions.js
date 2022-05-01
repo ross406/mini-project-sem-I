@@ -6,16 +6,26 @@ import answer from "../../assets/img/answer.png";
 
 import options from "../../assets/img/options.PNG";
 import cookie from "react-cookies";
+import { getQuestions } from "../../actions/questionActions";
 
 class ExamInstruntions extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      questions: [],
+    };
   }
   componentDidMount() {
     let userInfo = cookie.load("userInfo");
     if (!userInfo) {
       this.props.history.push("/");
     }
+    let questions = getQuestions();
+    console.log("questions", questions);
+    questions.then((data) => {
+      console.log(data);
+      this.setState({ questions: data });
+    });
   }
   render() {
     return (
@@ -31,7 +41,9 @@ class ExamInstruntions extends Component {
               The exam has a duration of 15 minutes and ends as soon as your
               time elapses.
             </li>
-            <li>Each exam consists of 15 questions.</li>
+            <li>
+              Each exam consists of {this.state.questions.length} questions.
+            </li>
             <li>
               Every question contains 4 options.
               <img src={options} alt="Exam App options example" />

@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      error: "",
     };
   }
 
@@ -23,7 +24,16 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    login(email, password, this.props.history);
+    login(
+      email.toLowerCase(),
+      password,
+      this.props.history,
+      function (err) {
+        if (err.message) {
+          this.setState({ error: "Email or password is wrong!" });
+        }
+      }.bind(this)
+    );
   }
 
   onChange(e) {
@@ -36,7 +46,12 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <div
-        style={{ backgroundColor: "#111", margin: 0, paddingBottom: "122px" }}
+        style={{
+          backgroundColor: "#111",
+          margin: 0,
+          paddingBottom: "122px",
+          minHeight: "100vh",
+        }}
       >
         <div id="container_1">
           <h1 id="title" style={{ margin: 0, padding: "30px 20px" }}>
@@ -71,6 +86,9 @@ class Login extends Component {
             />
 
             <input type="submit" id="submit" name="submit" value="Submit" />
+            {this.state.error !== "" && (
+              <p style={{ color: "red" }}>{this.state.error}</p>
+            )}
           </form>
         </div>
       </div>

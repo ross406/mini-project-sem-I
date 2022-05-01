@@ -2,12 +2,14 @@ import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { getValue, removeValue } from "../utils/CookieService";
+import { parseJwt } from "../utils/jwtService";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userInfo: null,
+      showResultsButton: false,
     };
   }
 
@@ -15,6 +17,11 @@ class Home extends Component {
     const userInfo = getValue("userInfo");
     if (userInfo) {
       this.setState({ userInfo });
+      let jwtData = parseJwt(userInfo.jwtToken);
+      console.log("jwtData", jwtData);
+      if (jwtData.user.isAdmin) {
+        this.setState({ showResultsButton: true });
+      }
     }
   }
 
@@ -58,15 +65,41 @@ class Home extends Component {
               </ul>
             </div>
             {this.state.userInfo ? (
-              <div className="auth-container">
-                <div
-                  onClick={this.handleLogout.bind(this)}
-                  className="auth-buttons"
-                  id="signup-button"
-                >
-                  Logout
+              <>
+                <div className="auth-container">
+                  <div
+                    onClick={this.handleLogout.bind(this)}
+                    className="auth-buttons"
+                    id="signup-button"
+                    style={{ backgroundColor: "Blue" }}
+                  >
+                    Logout
+                  </div>
                 </div>
-              </div>
+                <div className="auth-container">
+                  {this.state.showResultsButton && (
+                    <>
+                      <Link
+                        to="/results"
+                        disabled
+                        className="auth-buttons"
+                        id="signup-button"
+                        style={{ backgroundColor: "yellowgreen" }}
+                      >
+                        Results
+                      </Link>
+                      <Link
+                        to="/set-questions"
+                        disabled
+                        className="auth-buttons"
+                        id="signup-button"
+                      >
+                        Set Questions
+                      </Link>
+                    </>
+                  )}
+                </div>
+              </>
             ) : (
               <div className="auth-container">
                 <Link
@@ -74,6 +107,7 @@ class Home extends Component {
                   disabled
                   className="auth-buttons"
                   id="signup-button"
+                  style={{ backgroundColor: "blue" }}
                 >
                   Login
                 </Link>

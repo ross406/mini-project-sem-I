@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setValue } from "../utils/CookieService";
 
-export const login = async (email, password, history) => {
+export const login = async (email, password, history, errorOccured) => {
   try {
     const config = {
       headers: {
@@ -18,10 +18,17 @@ export const login = async (email, password, history) => {
     history.push("/");
   } catch (error) {
     console.log(error);
+    errorOccured(error);
   }
 };
 
-export const register = async (name, email, password, history) => {
+export const register = async (
+  name,
+  email,
+  password,
+  history,
+  errorOccured
+) => {
   try {
     const config = {
       headers: {
@@ -38,5 +45,6 @@ export const register = async (name, email, password, history) => {
     history.push("/");
   } catch (error) {
     console.log(error);
+    errorOccured(error);
   }
 };

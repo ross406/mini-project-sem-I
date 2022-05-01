@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import M from "materialize-css";
 import classnames from "classnames";
 
-import questions from "../../questions.json";
+// import questions from "../../questions.json";
 import isEmpty from "../../utils/is-empty";
 
 import correctNotification from "../../assets/audio/correct-answer.mp3";
@@ -11,12 +11,13 @@ import wrongNotification from "../../assets/audio/wrong-answer.mp3";
 import buttonSound from "../../assets/audio/button-sound.mp3";
 import cookie from "react-cookies";
 import { setResult } from "../../actions/resultActions";
+import { getQuestions } from "../../actions/questionActions";
 
 class Exam extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions,
+      questions: [],
       correctQuestionAsnswered: [],
       wrongQuestionAsnswered: [],
       currentQuestion: {},
@@ -48,15 +49,21 @@ class Exam extends Component {
   }
 
   componentDidMount() {
-    const { questions, currentQuestion, nextQuestion, previousQuestion } =
-      this.state;
-    this.displayQuestions(
-      questions,
-      currentQuestion,
-      nextQuestion,
-      previousQuestion
+    let questions = getQuestions();
+    console.log("questions", questions);
+    questions.then((data) =>
+      this.setState({ questions: data }, () => {
+        const { questions, currentQuestion, nextQuestion, previousQuestion } =
+          this.state;
+        this.displayQuestions(
+          questions,
+          currentQuestion,
+          nextQuestion,
+          previousQuestion
+        );
+        this.startTimer();
+      })
     );
-    this.startTimer();
   }
 
   componentWillUnmount() {
@@ -395,18 +402,18 @@ class Exam extends Component {
           <h5>{currentQuestion.question}</h5>
           <div className="options-container">
             <p onClick={this.handleOptionClick} className="option">
-              {currentQuestion.optionA}
+              {currentQuestion.optiona}
             </p>
             <p onClick={this.handleOptionClick} className="option">
-              {currentQuestion.optionB}
+              {currentQuestion.optionb}
             </p>
           </div>
           <div className="options-container">
             <p onClick={this.handleOptionClick} className="option">
-              {currentQuestion.optionC}
+              {currentQuestion.optionc}
             </p>
             <p onClick={this.handleOptionClick} className="option">
-              {currentQuestion.optionD}
+              {currentQuestion.optiond}
             </p>
           </div>
 
